@@ -1,0 +1,110 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+}
+
+.head {
+  padding: 8rpx 4rpx 24rpx;
+}
+
+.head .muted {
+  margin-top: 10rpx;
+}
+
+.person {
+  animation: fadeUp 0.3s ease both;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 96rpx;
+  height: 96rpx;
+  margin-right: 22rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f7b3ab 0%, #e8746b 100%);
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pname {
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.emo {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #5c534c;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 18rpx;
+}
+
+.reason {
+  margin-top: 4rpx;
+  font-size: 23rpx;
+  color: #b3704a;
+}
+
+.act {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 20rpx;
+}
+
+/* 举报/拉黑是次要动作：灰调，不抢"了解 TA"的注意力，但要看得到 */
+.btn-sm.more {
+  background: #f3efec;
+  color: #8a8079;
+  font-weight: 600;
+}
+
+.btn-sm.ghost {
+  background: #ffffff;
+  border: 2rpx solid #f0c9c4;
+}
+
+.locknote {
+  margin-top: 20rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 20rpx;
+  background: #eef1fb;
+  color: #5b67a8;
+  font-size: 22rpx;
+  line-height: 1.7;
+}
+
+.empty {
+  text-align: center;
+  padding: 48rpx 36rpx;
+}
+
+.empty-i {
+  font-size: 64rpx;
+}
+
+.foot {
+  background: #faf7f5;
+  border-top: 2rpx solid #f4ece8;
+}
+
+.foot .btn-ghost {
+  margin-top: 12rpx;
+}

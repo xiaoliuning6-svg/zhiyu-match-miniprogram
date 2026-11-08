@@ -1,0 +1,60 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.head {
+  padding: 20rpx 32rpx 16rpx;
+  background: #faf7f5;
+}
+
+.dim-tag {
+  font-size: 27rpx;
+  font-weight: 700;
+  color: #2b2622;
+}
+
+.quit {
+  font-size: 24rpx;
+  color: #a89f98;
+  padding: 6rpx 12rpx;
+}
+
+.meta {
+  margin-top: 10rpx;
+}
+
+.progress {
+  margin-top: 16rpx;
+}
+
+.chat {
+  flex: 1;
+  min-height: 0;
+  padding: 12rpx 32rpx 0;
+  box-sizing: border-box;
+}
+
+.msg {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-tail {
+  height: 40rpx;
+}
+
+.ph {
+  color: #b9b0a9;
+}
+
+/* 输入栏内部输入框铺满剩余空间 */
+.inputbar .grow {
+  height: 84rpx;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: #faf7f5;
+  font-size: 29rpx;
+}

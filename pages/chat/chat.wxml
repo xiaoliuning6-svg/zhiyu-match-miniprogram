@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="lock">
+    <view class="lock-t">🔒 强制专一 · 已暂停其他推送</view>
+    <view class="lock-end" bindtap="openMenu">⋯</view>
+  </view>
+
+  <scroll-view class="chat" scroll-y scroll-into-view="{{toView}}" scroll-with-animation enhanced show-scrollbar="{{false}}">
+    <view class="tip">这是演示对话，对方回复由本地规则生成，不是真人。</view>
+    <view class="msg" wx:for="{{msgs}}" wx:key="id" id="{{item.id}}">
+      <view class="who" wx:if="{{item.role === 'me'}}">你</view>
+      <view class="bubble {{item.role === 'ta' ? 'b-ai' : 'b-me'}}">{{item.text}}</view>
+    </view>
+    <view class="chat-tail"></view>
+  </scroll-view>
+
+  <view class="mentor" wx:if="{{mentorOpen}}">
+    <view class="row-between">
+      <view class="mt">💡 AI 军师</view>
+      <view class="mclose" bindtap="toggleMentor">收起</view>
+    </view>
+    <view class="mtext">{{mentorText}}</view>
+    <textarea
+      class="minput"
+      value="{{mentorInput}}"
+      bindinput="onMentorInput"
+      placeholder="贴一句对方的原话，军师给你具体动作…"
+      placeholder-class="ph"
+      maxlength="300"
+      auto-height
+    />
+    <view class="mrow">
+      <view class="btn-sm" bindtap="useLastMsg">用最后一条</view>
+      <view class="btn-sm solid" bindtap="askMentor">请军师分析</view>
+    </view>
+  </view>
+
+  <view class="vhint" wx:if="{{voiceHint}}">{{voiceHint}}</view>
+
+  <view class="toolbar">
+    <view class="tool" bindtap="toggleMentor">{{mentorOpen ? '收起军师' : '💡 AI 军师'}}</view>
+  </view>
+
+  <view class="inputbar">
+    <view class="mic {{recording ? 'rec' : ''}}" bindtap="toggleVoice">{{recording ? '⏹' : '🎤'}}</view>
+    <input
+      class="grow"
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="send"
+      confirm-type="send"
+      placeholder="发消息给 {{c.name}}…"
+      placeholder-class="ph"
+      cursor-spacing="24"
+      adjust-position
+    />
+    <view class="send" bindtap="send">发送</view>
+  </view>
+</view>

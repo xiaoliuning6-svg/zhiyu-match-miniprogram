@@ -1,0 +1,118 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+}
+
+.head-card {
+  padding: 8rpx 4rpx 24rpx;
+}
+
+.charc {
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  background: #fff2f0;
+  color: #d2665c;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+/* 五维条 */
+.dim + .dim {
+  margin-top: 28rpx;
+}
+
+.dname {
+  font-size: 27rpx;
+  font-weight: 700;
+}
+
+.dval {
+  font-size: 24rpx;
+  font-weight: 800;
+  color: #e8746b;
+}
+
+.bar {
+  position: relative;
+  height: 14rpx;
+  margin: 14rpx 0 8rpx;
+  border-radius: 999rpx;
+  background: #f4ece8;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #f5a9a2 0%, #e8746b 100%);
+}
+
+.bar-mid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2rpx;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 画像正文 */
+.ptext {
+  font-size: 27rpx;
+  line-height: 1.85;
+  color: #3b342f;
+}
+
+.pline {
+  margin-top: 10rpx;
+}
+
+.pline-h {
+  margin-top: 22rpx;
+  font-weight: 700;
+  color: #2b2622;
+}
+
+.pline-h:first-child {
+  margin-top: 0;
+}
+
+/* 公式说明 */
+.formula {
+  margin-top: 20rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 20rpx;
+  background: #f6f1ee;
+}
+
+.ft {
+  font-size: 22rpx;
+  font-weight: 800;
+  color: #8a8079;
+}
+
+.fd {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: #a89f98;
+}
+
+.foot {
+  background: #faf7f5;
+  border-top: 2rpx solid #f4ece8;
+}
+
+.link {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #a89f98;
+}

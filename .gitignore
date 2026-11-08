@@ -1,0 +1,17 @@
+# 微信开发者工具的本机私有配置（含 IDE 状态，不参与协作）
+project.private.config.json
+
+# 依赖与构建产物（本项目是原生工程，正常不会产生，防止误提交）
+node_modules/
+miniprogram_npm/
+miniprogram_dist/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 本地日志与临时文件
+*.log
+*.tmp

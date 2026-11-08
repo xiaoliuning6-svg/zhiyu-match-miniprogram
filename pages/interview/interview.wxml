@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="head">
+    <view class="row-between">
+      <view class="dim-tag">{{dimIcon}} {{dimName}}</view>
+      <view class="quit" bindtap="quit">退出</view>
+    </view>
+    <view class="progress">
+      <view style="width:{{pct}}%"></view>
+    </view>
+    <view class="row-between meta">
+      <view class="tiny">第 {{dimIndex}} / {{dimTotal}} 维</view>
+      <view class="tiny">进度 {{pct}}% · {{roundHint}}</view>
+    </view>
+  </view>
+
+  <scroll-view class="chat" scroll-y scroll-into-view="{{toView}}" scroll-with-animation enhanced show-scrollbar="{{false}}">
+    <view class="msg" wx:for="{{log}}" wx:key="id" id="{{item.id}}">
+      <view class="who" wx:if="{{item.role === 'me'}}">你</view>
+      <view class="bubble {{item.role === 'ai' ? 'b-ai' : 'b-me'}}">{{item.text}}</view>
+    </view>
+    <view class="chat-tail"></view>
+  </scroll-view>
+
+  <view class="vhint" wx:if="{{voiceHint}}">{{voiceHint}}</view>
+
+  <view class="inputbar">
+    <view class="mic {{recording ? 'rec' : ''}}" bindtap="toggleVoice">{{recording ? '⏹' : '🎤'}}</view>
+    <input
+      class="grow"
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="send"
+      confirm-type="send"
+      placeholder="{{placeholder}}"
+      placeholder-class="ph"
+      cursor-spacing="24"
+      adjust-position
+    />
+    <view class="send" bindtap="send">发送</view>
+  </view>
+</view>

@@ -1,0 +1,167 @@
+.wrap {
+  min-height: 100vh;
+  padding: 48rpx 40rpx calc(48rpx + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, #fdf3f1 0%, #faf7f5 42%);
+}
+
+/* ---------- 品牌区 ---------- */
+.hero {
+  text-align: center;
+  padding: 24rpx 0 44rpx;
+}
+.logo {
+  width: 112rpx;
+  height: 112rpx;
+  margin: 0 auto 22rpx;
+  border-radius: 32rpx;
+  background: linear-gradient(135deg, #f08b81 0%, #e8746b 100%);
+  color: #ffffff;
+  font-size: 56rpx;
+  font-weight: 800;
+  line-height: 112rpx;
+  text-align: center;
+  box-shadow: 0 14rpx 32rpx rgba(232, 116, 107, 0.3);
+}
+.title {
+  font-size: 48rpx;
+  font-weight: 800;
+  letter-spacing: 8rpx;
+  color: #2b2622;
+}
+.sub {
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: #8a8079;
+}
+
+/* ---------- 表单卡片 ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 36rpx 32rpx 32rpx;
+  box-shadow: 0 10rpx 36rpx rgba(120, 90, 80, 0.08);
+}
+
+.avatar-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 28rpx;
+}
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 999rpx;
+  background: #faf7f5;
+  border: 2rpx solid #f0e6e0;
+}
+.avatar.ph {
+  color: #c9bcb4;
+  font-size: 56rpx;
+  line-height: 136rpx;
+  text-align: center;
+  border-style: dashed;
+}
+.avatar-tip {
+  margin-top: 14rpx;
+  font-size: 23rpx;
+  color: #a89f98;
+}
+
+.field {
+  padding: 22rpx 0;
+  border-top: 2rpx solid #f6efeb;
+}
+.label {
+  font-size: 25rpx;
+  color: #8a8079;
+  margin-bottom: 12rpx;
+}
+.opt {
+  font-size: 21rpx;
+  color: #b8aea7;
+  margin-left: 8rpx;
+}
+.input {
+  height: 84rpx;
+  padding: 0 24rpx;
+  border-radius: 18rpx;
+  background: #faf7f5;
+  font-size: 30rpx;
+  color: #2b2622;
+}
+.picker {
+  height: 84rpx;
+  padding: 0 24rpx;
+  border-radius: 18rpx;
+  background: #faf7f5;
+  font-size: 30rpx;
+  color: #2b2622;
+  line-height: 84rpx;
+}
+
+/* 性别二选一 */
+.seg {
+  display: flex;
+  gap: 16rpx;
+}
+.seg-item {
+  flex: 1;
+  height: 84rpx;
+  border-radius: 18rpx;
+  background: #faf7f5;
+  border: 2rpx solid #f6efeb;
+  color: #8a8079;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.16s ease;
+}
+.seg-item.on {
+  background: #fff2f0;
+  border-color: #f2a99f;
+  color: #d2665c;
+  font-weight: 700;
+}
+
+.btn.block {
+  margin-top: 32rpx;
+}
+.login-note {
+  margin-top: 18rpx;
+  text-align: center;
+  font-size: 21rpx;
+  color: #b8aea7;
+  line-height: 1.5;
+}
+
+/* ---------- 边界说明 ---------- */
+.notes {
+  margin-top: 36rpx;
+  padding: 26rpx 28rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 247, 238, 0.9);
+  border: 2rpx solid #f4e6d5;
+}
+.note-t {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #9a5a2e;
+  margin-bottom: 12rpx;
+}
+.note {
+  display: flex;
+  align-items: flex-start;
+  font-size: 22rpx;
+  color: #9a5a2e;
+  line-height: 1.7;
+}
+.note .dot {
+  flex: 0 0 auto;
+  width: 8rpx;
+  height: 8rpx;
+  margin: 14rpx 12rpx 0 0;
+  border-radius: 999rpx;
+  background: #d9a97c;
+}

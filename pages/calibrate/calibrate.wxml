@@ -1,0 +1,84 @@
+<view class="page">
+  <scroll-view class="scroll" scroll-y>
+    <view class="body">
+      <view class="intro fade-up">
+        <view class="h1">校准一下</view>
+        <view class="muted">左边是我从你原话里读出来的倾向，觉得不准就拖动改。这一步直接决定匹配到谁。</view>
+      </view>
+
+      <view class="card fade-up d1">
+        <view class="dim" wx:for="{{dims}}" wx:key="key">
+          <view class="row-between">
+            <view class="h3">{{item.name}}</view>
+            <view class="val">{{item.value}}</view>
+          </view>
+          <slider
+            min="0"
+            max="100"
+            value="{{item.value}}"
+            data-key="{{item.key}}"
+            bindchange="onSlide"
+            bindchanging="onSlide"
+            activeColor="#e8746b"
+            backgroundColor="#f1e9e5"
+            block-size="20"
+            block-color="#ffffff"
+          />
+          <view class="row-between scale">
+            <view class="tiny">{{item.left}}</view>
+            <view class="tiny">{{item.right}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="card fade-up d2">
+        <view class="h3">硬性条件</view>
+        <view class="muted" style="margin-bottom:8rpx">这几项是硬门槛，不满足直接不进匹配池。</view>
+
+        <view class="prow">
+          <view class="plabel">所在城市</view>
+          <picker mode="selector" range="{{cities}}" value="{{cityIndex}}" bindchange="onCity">
+            <view class="pval">{{cities[cityIndex]}} ›</view>
+          </picker>
+        </view>
+
+        <view class="prow">
+          <view class="plabel">我的年龄</view>
+          <input class="page-input" type="number" value="{{age}}" bindinput="onAge" />
+        </view>
+
+        <view class="prow">
+          <view class="plabel">年龄差不超过</view>
+          <picker mode="selector" range="{{gaps}}" value="{{gapIndex}}" bindchange="onGap">
+            <view class="pval">± {{gaps[gapIndex]}} 岁 ›</view>
+          </picker>
+        </view>
+
+        <view class="prow">
+          <view class="plabel">最低学历</view>
+          <picker mode="selector" range="{{edus}}" value="{{eduIndex}}" bindchange="onEdu">
+            <view class="pval">{{edus[eduIndex]}} ›</view>
+          </picker>
+        </view>
+
+        <view class="prow last">
+          <view class="plabel">想认识</view>
+          <picker mode="selector" range="{{wants}}" value="{{wantIndex}}" bindchange="onWant">
+            <view class="pval">{{wants[wantIndex]}} ›</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="qhint fade-up d3">
+        <text class="qhint-t">画像完整度</text>
+        <text class="qhint-d">{{qualityText}}</text>
+      </view>
+
+      <view style="height:24rpx"></view>
+    </view>
+  </scroll-view>
+
+  <view class="foot">
+    <button class="btn" bindtap="submit">生成画像并开始匹配</button>
+  </view>
+</view>

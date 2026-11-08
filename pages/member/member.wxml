@@ -1,0 +1,87 @@
+<view class="page">
+  <scroll-view class="scroll" scroll-y>
+    <view class="body">
+      <view class="hero fade-up">
+        <view class="htag">按结果付费</view>
+        <view class="h1">保结婚会员</view>
+        <view class="price">
+          <text class="cur">¥</text>
+          <text class="num">{{price}}</text>
+        </view>
+        <view class="muted">一次性 · 三年期 · 第三方银行托管（演示为模拟）</view>
+      </view>
+
+      <block wx:if="{{paid}}">
+        <view class="card paidcard fade-up d1">
+          <view class="row-between">
+            <view class="h3">保障已生效</view>
+            <view class="badge">三 年 期</view>
+          </view>
+          <view class="kv"><text class="k">开通日期</text><text class="v">{{paidDate}}</text></view>
+          <view class="kv"><text class="k">保障到期</text><text class="v">{{expireDate}}</text></view>
+          <view class="kv"><text class="k">当前状态</text><text class="v">{{remainText}}</text></view>
+
+          <view class="progress" style="margin-top:22rpx">
+            <view style="width:{{dayPct}}%"></view>
+          </view>
+          <view class="tiny" style="margin-top:10rpx">已走过三年保障期的 {{dayPct}}%</view>
+        </view>
+
+        <view class="card fade-up d2">
+          <view class="h3">到期怎么算</view>
+          <view class="rule"><text class="dot"></text>三年内领证 → 费用作为服务对价，不退</view>
+          <view class="rule"><text class="dot"></text>三年到期未领证 → 全额退款，走银行托管</view>
+          <view class="rule"><text class="dot"></text>中途主动注销 → 按未使用月份折算</view>
+          <view class="muted" style="margin-top:16rpx">以上条款在真实产品中须由法务与托管银行确认，演示版仅展示交互。</view>
+        </view>
+
+        <view class="btn-sm" style="margin-top:24rpx" bindtap="claim">查看退款流程（模拟）</view>
+      </block>
+
+      <block wx:else>
+        <view class="card fade-up d1">
+          <view class="h3">为什么敢这么承诺</view>
+          <view class="node">
+            <view class="ni">1</view>
+            <view class="grow">
+              <view class="nt">平台不靠你单身赚钱</view>
+              <view class="nd">传统婚恋平台的收入和"你一直找不到"是正相关的。这里反过来：你真结婚了，这单才算完成。</view>
+            </view>
+          </view>
+          <view class="node">
+            <view class="ni">2</view>
+            <view class="grow">
+              <view class="nt">钱先放在第三方</view>
+              <view class="nd">费用由银行托管，平台动不了。三年到期没领证，原路退回。</view>
+            </view>
+          </view>
+          <view class="node">
+            <view class="ni">3</view>
+            <view class="grow">
+              <view class="nt">所以我们只推高诚意的人</view>
+              <view class="nd">实名、人脸、婚况核实、强制 1v1，都是为了把"来玩玩的"挡在外面。</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="card fade-up d2">
+          <view class="h3">三年期保障</view>
+          <view class="rule"><text class="dot"></text>三年内未领证：全额退款</view>
+          <view class="rule"><text class="dot"></text>三年内领证：服务完成，费用不退</view>
+          <view class="rule"><text class="dot"></text>退款由第三方银行托管执行，平台不接触资金</view>
+        </view>
+      </block>
+
+      <view class="warn fade-up d3">
+        ⚠️ 演示说明：本页不发起真实支付，不收集真实身份与婚况信息。真实上线需企业主体、婚恋类目资质与银行托管协议。
+      </view>
+
+      <view class="reset" bindtap="resetAll">清空演示数据</view>
+      <view style="height:24rpx"></view>
+    </view>
+  </scroll-view>
+
+  <view class="foot" wx:if="{{!paid}}">
+    <button class="btn" bindtap="pay">模拟开通（¥{{price}}）</button>
+  </view>
+</view>

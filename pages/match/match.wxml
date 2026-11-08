@@ -1,0 +1,57 @@
+<view class="page">
+  <scroll-view class="scroll" scroll-y>
+    <view class="body">
+      <view class="head fade-up">
+        <view class="h1">你的高契合对象</view>
+        <view class="muted">只有相似度 ≥ {{threshold}}% 的人才会出现在这里，共 {{list.length}} 位</view>
+      </view>
+
+      <block wx:if="{{!empty}}">
+        <view class="card person fade-up" wx:for="{{list}}" wx:key="id">
+          <view class="row">
+            <view class="avatar">{{item.initial}}</view>
+            <view class="grow">
+              <view class="row-between">
+                <view class="pname">{{item.name}}</view>
+                <view class="score">{{item.pct}}%</view>
+              </view>
+              <view class="muted">{{item.age}} 岁 · {{item.city}} · {{item.edu}} · {{item.job}}</view>
+            </view>
+          </view>
+
+          <view class="emo">{{item.emo}}</view>
+
+          <view class="tags">
+            <view class="tag" wx:for="{{item.tags}}" wx:for-item="tg" wx:key="*this">{{tg}}</view>
+          </view>
+
+          <view class="reason">{{item.reason}}</view>
+
+          <view class="act">
+            <view class="btn-sm ghost" data-id="{{item.id}}" bindtap="openChat">了解 TA</view>
+            <view class="btn-sm more" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="openMenu">举报 / 拉黑</view>
+          </view>
+        </view>
+
+        <view class="locknote fade-up">
+          🔒 一旦你和某人双向确认，系统会暂停所有其他推送，同一时间只认真对一个人。
+        </view>
+      </block>
+
+      <view class="card empty fade-up" wx:else>
+        <view class="empty-i">🔍</view>
+        <view class="h3">暂时没有达到门槛的人</view>
+        <view class="muted" style="margin-top:10rpx;line-height:1.7">{{diagText}}</view>
+        <view class="muted" style="margin-top:14rpx">可以试试放宽年龄差、降低学历要求，或者换一个城市。</view>
+        <view class="btn-sm" style="margin-top:24rpx" bindtap="goCalibrate">回去调整条件</view>
+      </view>
+
+      <view style="height:24rpx"></view>
+    </view>
+  </scroll-view>
+
+  <view class="foot">
+    <button class="btn" bindtap="lockFirst" wx:if="{{!empty}}">与最契合的人开始专属 1v1</button>
+    <button class="btn-ghost block" bindtap="goMember" wx:else>看看保结婚会员</button>
+  </view>
+</view>

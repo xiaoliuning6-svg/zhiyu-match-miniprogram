@@ -1,0 +1,267 @@
+/* ================= 全局设计令牌与基础 ================= */
+page {
+  min-height: 100%;
+  background: #faf7f5;
+  color: #2b2622;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 30rpx;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+view, text, button, input, textarea, scroll-view {
+  box-sizing: border-box;
+}
+
+/* 按钮基线：清掉原生边框与默认背景 */
+button {
+  margin: 0;
+  padding: 0;
+  border-radius: 24rpx;
+  font-size: 32rpx;
+  line-height: 1;
+  background: transparent;
+}
+button::after { border: none; }
+
+/* ================= 布局 ================= */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.body {
+  flex: 1;
+  padding: 24rpx 32rpx 32rpx;
+}
+
+.foot {
+  padding: 20rpx 32rpx calc(24rpx + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(250, 247, 245, 0) 0%, #faf7f5 40%);
+}
+
+.row { display: flex; align-items: center; }
+.row-between { display: flex; align-items: center; justify-content: space-between; }
+.grow { flex: 1; min-width: 0; }
+.center { text-align: center; }
+.gap-8 { height: 8rpx; }
+.gap-16 { height: 16rpx; }
+.gap-24 { height: 24rpx; }
+.gap-32 { height: 32rpx; }
+
+/* ================= 文字 ================= */
+.h1 { font-size: 48rpx; font-weight: 800; letter-spacing: -0.5rpx; line-height: 1.35; }
+.h2 { font-size: 36rpx; font-weight: 700; line-height: 1.4; }
+.h3 { font-size: 30rpx; font-weight: 700; }
+.body-t { font-size: 28rpx; color: #2b2622; }
+.muted { font-size: 26rpx; color: #8a8079; }
+.tiny { font-size: 22rpx; color: #a89f98; }
+.main-c { color: #e8746b; }
+.strong { font-weight: 700; }
+
+/* ================= 卡片 ================= */
+.card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(120, 90, 80, 0.07);
+}
+.card + .card { margin-top: 20rpx; }
+.card-tight { padding: 24rpx 28rpx; }
+
+/* ================= 按钮 ================= */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 96rpx;
+  border-radius: 24rpx;
+  background: #e8746b;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+  box-shadow: 0 10rpx 24rpx rgba(232, 116, 107, 0.28);
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.btn:active { transform: scale(0.985); opacity: 0.92; }
+.btn.block { margin-top: 16rpx; }
+.btn-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 96rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  color: #e8746b;
+  border: 2rpx solid #f0c9c4;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.btn-ghost:active { background: #fff6f5; }
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 64rpx;
+  padding: 0 28rpx;
+  border-radius: 18rpx;
+  background: #fff2f0;
+  color: #e8746b;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.btn-disabled {
+  background: #ece4e0 !important;
+  color: #b3a89f !important;
+  box-shadow: none !important;
+}
+
+/* ================= 标签 / 徽标 ================= */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 44rpx;
+  padding: 0 18rpx;
+  margin: 0 12rpx 12rpx 0;
+  border-radius: 999rpx;
+  background: #fff2f0;
+  color: #d2665c;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.tag-gray { background: #f3efec; color: #8a8079; }
+
+.score {
+  color: #e8746b;
+  font-weight: 800;
+  font-size: 30rpx;
+}
+
+/* ================= 进度条 ================= */
+.progress {
+  height: 12rpx;
+  border-radius: 999rpx;
+  background: #f1e9e5;
+  overflow: hidden;
+}
+.progress > view {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #f2a09a 0%, #e8746b 100%);
+  transition: width 0.35s ease;
+}
+
+/* ================= 聊天气泡 ================= */
+.bubble {
+  max-width: 78%;
+  padding: 20rpx 26rpx;
+  border-radius: 24rpx;
+  font-size: 29rpx;
+  line-height: 1.55;
+  word-break: break-all;
+  animation: bubbleIn 0.22s ease both;
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.b-ai {
+  background: #ffffff;
+  color: #2b2622;
+  border-top-left-radius: 8rpx;
+  box-shadow: 0 4rpx 16rpx rgba(120, 90, 80, 0.06);
+}
+.b-me {
+  background: linear-gradient(135deg, #f08b81 0%, #e8746b 100%);
+  color: #ffffff;
+  border-top-right-radius: 8rpx;
+  margin-left: auto;
+  box-shadow: 0 6rpx 20rpx rgba(232, 116, 107, 0.22);
+}
+.who {
+  font-size: 22rpx;
+  color: #a89f98;
+  margin: 20rpx 0 8rpx;
+}
+
+/* ================= 输入栏 ================= */
+.inputbar {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #ffffff;
+  border-top: 2rpx solid #f2ebe7;
+}
+.inputbar input {
+  flex: 1;
+  height: 84rpx;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  background: #faf7f5;
+  font-size: 29rpx;
+}
+.mic {
+  flex: 0 0 auto;
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 20rpx;
+  background: #faf7f5;
+  border: 2rpx solid #f0e6e0;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8079;
+}
+.mic.rec {
+  background: #ffe9e6;
+  border-color: #ef8b81;
+  color: #e0503f;
+  animation: micPulse 0.9s infinite;
+}
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(232, 80, 63, 0.35); }
+  70% { box-shadow: 0 0 0 16rpx rgba(232, 80, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 80, 63, 0); }
+}
+.send {
+  flex: 0 0 auto;
+  height: 84rpx;
+  padding: 0 34rpx;
+  border-radius: 20rpx;
+  background: #e8746b;
+  color: #ffffff;
+  font-size: 29rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.send:active { opacity: 0.9; }
+
+/* 环境提示条 */
+.vhint {
+  padding: 14rpx 24rpx;
+  background: #fff7ee;
+  border-top: 2rpx solid #f4e6d5;
+  font-size: 22rpx;
+  color: #9a5a2e;
+  line-height: 1.5;
+}
+
+/* ================= 通用动效 ================= */
+.fade-up { animation: fadeUp 0.32s ease both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.11s; }
+.d3 { animation-delay: 0.17s; }
+.d4 { animation-delay: 0.23s; }
